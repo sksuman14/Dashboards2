@@ -36,10 +36,8 @@ const Deployment = () => {
       </div>
 
       <div className="glass-panel" style={{ marginBottom: '32px' }}>
-        <h2 style={{ marginBottom: '24px', color: 'var(--accent-teal)' }}>Deployment Map</h2>
-        <p style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}>
-          Devices with known locations are shown at their exact spots. Other devices are mapped to one of the standard Sutlej River deployment locations.
-        </p>
+        <h2 style={{ marginBottom: '24px', color: 'var(--accent-teal)' }}>Deployments</h2>
+       
         <DeviceMap devices={devicesWithLocations} />
       </div>
 

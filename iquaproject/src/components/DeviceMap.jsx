@@ -60,10 +60,9 @@ const DeviceMap = ({ devices }) => {
 
   return (
     <div style={{ height: '400px', width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--panel-border)' }}>
-      <MapContainer center={[30.9664, 76.5331]} zoom={10} style={{ height: '100%', width: '100%' }}>
+      <MapContainer center={[30.9664, 76.5331]} zoom={10} style={{ height: '100%', width: '100%' }} attributionControl={false}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {markers.map((marker, idx) => (
           <Marker key={idx} position={marker.coords}>
