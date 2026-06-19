@@ -101,6 +101,8 @@ body {
   padding: 1.5rem;
   align-items: flex-end;
   justify-content: space-between;
+  position: relative;
+  z-index: 20;
 }
 
 .control-group {
@@ -131,6 +133,61 @@ body {
 
 .control-input:focus {
   border-color: var(--primary);
+}
+
+/* Autocomplete Suggestions */
+.suggestions-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+/* Custom scrollbar for suggestions */
+.suggestions-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+.suggestions-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+.suggestion-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.suggestion-item:hover {
+  background: rgba(59, 130, 246, 0.2);
+  color: white;
+}
+
+.suggestion-item-id {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.suggestion-item-loc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .btn-primary {
@@ -620,6 +677,7 @@ tr:hover td {
   .nav-tabs-container {
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
   }
   
   .nav-tab {
@@ -694,5 +752,86 @@ tr:hover td {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
   }
+  
+  .map-wrapper {
+    height: 350px !important;
+  }
+  
+  .leaflet-popup-content-wrapper {
+    max-width: 250px;
+  }
+  
+  .leaflet-popup-content {
+    margin: 10px;
+  }
 }
 
+/* Custom Map Controls */
+.custom-map-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+}
+
+.map-btn {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  color: var(--text-main);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.map-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.map-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Fullscreen Map Mode */
+.map-panel.fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: #000;
+}
+
+.map-panel.fullscreen .map-wrapper {
+  height: 100% !important;
+  width: 100% !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.map-panel.fullscreen .section-subtitle,
+.map-panel.fullscreen .details-text {
+  display: none;
+}
+
+/* Custom Numbered Marker Icon */
+.custom-number-icon {
+  background: transparent;
+  border: none;
+}
