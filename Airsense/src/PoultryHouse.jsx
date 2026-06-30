@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, MapPin, Radio, CheckCircle2, Cpu, Layers } from 'lucide-react';
+import { Activity, MapPin, Radio, CheckCircle2, Cpu, Layers, Home } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts';
 import { useChartZoomPan } from './hooks/useChartZoomPan';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -319,26 +319,22 @@ export default function PoultryHouse() {
             </div>
           </div>
           
-          {/* Pill-Style Product Switcher */}
-          <div className="product-switcher">
-            <Link 
-              to="/" 
-              className="switcher-btn"
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#fff';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--text-secondary)';
-                e.currentTarget.style.backgroundColor = 'transparent';
-              }}
-            >
-              AirSense
-            </Link>
-            <div className="switcher-btn active">
-              Poultry House
-            </div>
-          </div>
+          {/* Home Button */}
+          <Link 
+            to="/" 
+            className="btn btn-outline"
+            style={{ 
+              borderRadius: '99px',
+              padding: '0.4rem 1.2rem',
+              fontSize: '0.85rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
+            <Home size={14} />
+            <span>Home</span>
+          </Link>
         </div>
       </header>
 

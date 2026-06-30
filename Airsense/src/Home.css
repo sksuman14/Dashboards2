@@ -1,0 +1,317 @@
+/* Styling for AirSense Platform Home Page */
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0a111c;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.06), transparent 40%);
+  color: #f0f3f8;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Header & Navbar */
+.home-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 17, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #3b82f6, #22c55e);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-logo-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.home-nav-link {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.home-nav-link:hover, .home-nav-link.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hamburger toggle styling */
+.home-hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #f0f3f8;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Hero Section */
+.home-hero-section {
+  text-align: center;
+  padding: 80px 24px 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 0 0 16px;
+  background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #3b82f6;
+  margin: 0 0 20px;
+  letter-spacing: -0.5px;
+}
+
+.home-description {
+  font-size: 18px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Equal Cards Section */
+.home-main-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px 80px;
+  box-sizing: border-box;
+}
+
+.home-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.home-product-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(16, 26, 42, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home-product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(22, 38, 62, 0.75);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.home-card-image-wrapper {
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 15, 26, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.home-card-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home-product-card:hover .home-card-image {
+  transform: scale(1.04);
+}
+
+.home-card-content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.home-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.home-card-desc {
+  font-size: 15px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 32px;
+  flex-grow: 1;
+}
+
+.home-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.home-product-card:nth-child(2) .home-card-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.home-card-btn:hover {
+  transform: translateX(4px);
+}
+
+.home-product-card:nth-child(1) .home-card-btn:hover {
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.home-product-card:nth-child(2) .home-card-btn:hover {
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .home-title {
+    font-size: 48px;
+  }
+  .home-cards-grid {
+    gap: 24px;
+  }
+  .home-card-image-wrapper {
+    height: 220px;
+  }
+  .home-card-content {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hamburger-btn {
+    display: block;
+  }
+
+  .home-nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: #0a111c;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 24px;
+    gap: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+
+  .home-nav-links.open {
+    display: flex;
+  }
+
+  .home-nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .home-hero-section {
+    padding: 48px 20px 40px;
+  }
+
+  .home-title {
+    font-size: 38px;
+  }
+
+  .home-subtitle {
+    font-size: 20px;
+  }
+
+  .home-description {
+    font-size: 16px;
+  }
+
+  .home-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .home-card-image-wrapper {
+    height: 200px;
+  }
+}

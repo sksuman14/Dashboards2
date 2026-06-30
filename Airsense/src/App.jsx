@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import PoultryHouse from './PoultryHouse.jsx';
+import Home from './Home.jsx';
 import {
   Wind, Thermometer, Droplets, Cpu, Wifi, Battery, BatteryCharging,
   AlertTriangle, TrendingUp, Settings, Layers, DollarSign, Calendar,
@@ -260,7 +261,7 @@ function App() {
   useEffect(() => {
     if (location.pathname === '/poultry-house') {
       setActiveTab('poultry-house');
-    } else if (location.pathname === '/') {
+    } else if (location.pathname === '/air-quality') {
       if (activeTab === 'poultry-house') {
         setActiveTab('home');
       }
@@ -271,8 +272,8 @@ function App() {
     if (tabId === 'poultry-house') {
       navigate('/poultry-house');
     } else {
-      if (location.pathname !== '/') {
-        navigate('/');
+      if (location.pathname !== '/air-quality') {
+        navigate('/air-quality');
       }
       setActiveTab(tabId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -773,7 +774,7 @@ function App() {
   return (
     <div id="root">
       {/* ─── Navigation Header ─── */}
-      {!isPoultryRoute && (
+      {location.pathname === '/air-quality' && (
         <header>
           <div className="nav-container">
             <div className="logo-group">
@@ -783,6 +784,11 @@ function App() {
               <span className="logo-text">AirSense</span>
             </div>
             <nav>
+              <button
+                onClick={() => navigate('/')}
+              >
+                Home
+              </button>
               <button
                 className={activeTab === 'home' ? 'active' : ''}
                 onClick={() => navigateToTab('home')}
@@ -807,12 +813,6 @@ function App() {
               >
                 Technical Specs
               </button>
-              <button
-                className={activeTab === 'poultry-house' ? 'active' : ''}
-                onClick={() => navigateToTab('poultry-house')}
-              >
-                Poultry House
-              </button>
             </nav>
           </div>
         </header>
@@ -820,7 +820,8 @@ function App() {
 
       {/* ─── Main Content ─── */}
       <Routes>
-        <Route path="/" element={
+        <Route path="/" element={<Home />} />
+        <Route path="/air-quality" element={
           <main>
 
         {/* ━━━━━━━━ TABS 1: HOME (PRODUCT LANDING) ━━━━━━━━ */}
